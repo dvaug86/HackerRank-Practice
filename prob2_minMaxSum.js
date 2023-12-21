@@ -22,7 +22,6 @@
 
 // Constraints
 
-
 // Output Format
 
 // Print two space-separated long integers denoting the respective minimum and maximum values that can be calculated by summing exactly four of the five integers. (The output can be greater than a 32 bit integer.)
@@ -43,3 +42,25 @@
 // Sum everything except , the sum is .
 // Sum everything except , the sum is .
 // Hints: Beware of integer overflow! Use 64-bit Integer.
+const arr = [1, 3, 5, 7, 9];
+function miniMaxSum(arr) {
+  let sum_min = 0;
+  let sum_max = 0;
+  let min_val = arr[0];
+  let max_val = arr[0];
+  let sum = 0;
+
+  for (let index = 0; index < arr.length; index += 1) {
+    if (arr[index] > max_val) {
+      max_val = arr[index];
+    }
+    if (arr[index] < min_val) {
+      min_val = arr[index];
+    }
+    sum = sum + arr[index];
+  }
+  sum_min = sum - max_val;
+  sum_max = sum - min_val;
+
+  console.log(sum_min, sum_max);
+}
